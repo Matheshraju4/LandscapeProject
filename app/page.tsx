@@ -2,12 +2,12 @@ import Cards from "@/components/cards";
 import FontPageTop from "@/components/fontpagetop";
 import Navbar from "@/components/navbar";
 import Image from "next/image";
-import All from "../public/card images/Alltypes.jpg";
-import Lawn from "../public/card images/LawnLaying.jpg";
-import plant from "../public/card images/planttation.jpg";
-import fountain from "../public/card images/waterfountain.jpg";
-import path from "../public/card images/naturalPath.jpg";
-import system from "../public/card images/waterSystem.jpg";
+import All from "../public/card_images/Alltypes.jpg";
+import Lawn from "../public/card_images/LawnLaying.jpg";
+import plant from "../public/card_images/planttation.jpg";
+import fountain from "../public/card_images/waterfountain.jpg";
+import path from "../public/card_images/naturalPath.jpg";
+import system from "../public/card_images/waterSystem.jpg";
 import OurWorks from "@/components/ourworks";
 import FooterPage from "@/components/footer";
 let content = [
