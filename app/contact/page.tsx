@@ -1,9 +1,11 @@
 "use client";
 
+import Spinner from "@/components/spinner";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const ContactSection: React.FC = () => {
+  const [Loading, setLoading] = useState(false);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
@@ -12,6 +14,7 @@ const ContactSection: React.FC = () => {
   async function handleClick(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) {
+    setLoading(true);
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3000/api/contact", {
@@ -20,6 +23,8 @@ const ContactSection: React.FC = () => {
         message: message,
         phonenumber: phonenumber,
       });
+
+      setLoading(false);
       alert("Message has been sent");
     } catch (error) {
       console.error("Error sending message:", error);
@@ -208,13 +213,17 @@ const ContactSection: React.FC = () => {
                   </div>
                 </div>
                 <div className="text-center">
-                  <button
-                    onClick={handleClick}
-                    type="submit"
-                    className="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0"
-                  >
-                    Send Message
-                  </button>
+                  {!Loading ? (
+                    <button
+                      onClick={handleClick}
+                      type="submit"
+                      className="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0"
+                    >
+                      Send Message
+                    </button>
+                  ) : (
+                    <Spinner />
+                  )}
                 </div>
               </form>
             </div>
